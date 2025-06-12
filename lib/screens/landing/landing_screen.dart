@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:devlite_flutter/state_machine/state_machine.dart';
+import 'package:devlite_flutter/services/services.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});
@@ -8,21 +9,24 @@ class LandingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Landing Screen')),
+      appBar: AppBar(
+          title: Text(
+              LocalizationService().translate('debug.screens.landing.title'))),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'This is the Landing Screen',
-              style: TextStyle(fontSize: 24),
+            Text(
+              LocalizationService().translate('debug.screens.landing.content'),
+              style: const TextStyle(fontSize: 24),
             ),
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
                 context.read<AppStateMachine>().addEvent(AppEvent.goToHome);
               },
-              child: const Text('Go to Home Screen'),
+              child: Text(LocalizationService()
+                  .translate('debug.screens.landing.goToHomeButton')),
             ),
           ],
         ),

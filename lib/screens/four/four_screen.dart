@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:devlite_flutter/services/services.dart';
 
 class FourScreen extends StatelessWidget {
   const FourScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Text(
-        'Four Screen Content',
+        LocalizationService().translate('debug.screens.four.content'),
         style: TextStyle(fontSize: 24),
       ),
     );

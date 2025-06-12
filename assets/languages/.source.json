@@ -11,7 +11,6 @@
         }
     },
     "debug": {
-        "comment": "// TODO : Remove this section in production.",
         "screens": {
             "landing": {
                 "content": "Landing Screen Content",
@@ -26,23 +25,23 @@
             },
             "three": {
                 "content": "Three Screen Content"
-            },
-            "four": {
-                "content": "Four Screen Content"
-            },
-            "five": {
-                "content": "Five Screen Content"
             }
         },
-        "dialog": {
-            "logout": {
-                "title": "Confirm Logout",
-                "content": "Are you sure you want to quit the application?"
-            },
-            "button": {
-                "yes": "Yes",
-                "no": "No"
-            }
+        "four": {
+            "content": "Four Screen Content"
+        },
+        "five": {
+            "content": "Five Screen Content"
+        }
+    },
+    "dialog": {
+        "logout": {
+            "title": "Confirm Logout",
+            "content": "Are you sure you want to quit the application?"
+        },
+        "button": {
+            "yes": "Yes",
+            "no": "No"
         }
     }
 }

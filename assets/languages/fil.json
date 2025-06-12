@@ -10,6 +10,30 @@
             "feedback": "Puna"
         }
     },
+    "debug": {
+        "screens": {
+            "landing": {
+                "content": "Nilalaman ng Landing Screen",
+                "goToHomeButton": "Pumunta sa Home Screen",
+                "title": "Landing Screen"
+            },
+            "home": {
+                "content": "Nilalaman ng Home Screen"
+            },
+            "two": {
+                "content": "Nilalaman ng Ikalawang Screen"
+            },
+            "three": {
+                "content": "Nilalaman ng Ikatlong Screen"
+            }
+        },
+        "four": {
+            "content": "Nilalaman ng Ikaapat na Screen"
+        },
+        "five": {
+            "content": "Nilalaman ng Ikalimang Screen"
+        }
+    },
     "dialog": {
         "logout": {
             "title": "Kumpirmahin ang Pag-logout",
