@@ -1,13 +1,23 @@
 {
     "header": {
-        "title": "Фруктовая лавка",
+        "title": "Fruitstand",
         "drawer": {
-            "settings": "Настройки",
-            "billing": "Оплата",
-            "logout": "Выйти",
-            "about": "О программе",
-            "help": "Помощь",
-            "feedback": "Обратная связь"
+            "settings": "Settings",
+            "billing": "Billing",
+            "logout": "Logout",
+            "about": "About",
+            "help": "Help",
+            "feedback": "Feedback"
+        }
+    },
+    "dialog": {
+        "logout": {
+            "title": "Confirm Logout",
+            "content": "Are you sure you want to quit the application?"
+        },
+        "button": {
+            "yes": "Yes",
+            "no": "No"
         }
     }
 }

@@ -7,7 +7,17 @@
             "logout": "Mag-logout",
             "about": "Tungkol",
             "help": "Tulong",
-            "feedback": "Feedback"
+            "feedback": "Puna"
+        }
+    },
+    "dialog": {
+        "logout": {
+            "title": "Kumpirmahin ang Pag-logout",
+            "content": "Sigurado ka bang gusto mong lumabas sa application?"
+        },
+        "button": {
+            "yes": "Oo",
+            "no": "Hindi"
         }
     }
 }

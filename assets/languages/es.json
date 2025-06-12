@@ -1,0 +1,23 @@
+{
+    "header": {
+        "title": "Frutería",
+        "drawer": {
+            "settings": "Configuración",
+            "billing": "Facturación",
+            "logout": "Cerrar sesión",
+            "about": "Acerca de",
+            "help": "Ayuda",
+            "feedback": "Comentarios"
+        }
+    },
+    "dialog": {
+        "logout": {
+            "title": "Confirmar cierre de sesión",
+            "content": "¿Estás seguro de que quieres salir de la aplicación?"
+        },
+        "button": {
+            "yes": "Sí",
+            "no": "No"
+        }
+    }
+}

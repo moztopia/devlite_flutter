@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:devlite_flutter/widgets/widgets.dart';
 import 'package:devlite_flutter/screens/screens.dart';
 import 'package:devlite_flutter/utilities/utilities.dart';
@@ -63,7 +64,8 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
     {
       'label': LocalizationService().translate('header.drawer.logout'),
       'icon': Icons.logout,
-      'isDivider': false
+      'isDivider': false,
+      'isLogout': true
     },
   ];
 
@@ -72,6 +74,22 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
       _selectedIndex = index;
     });
     mozPrint('${_appBarTitles[index]} was selected', 'NAVIGATION', 'FOOTER');
+  }
+
+  void _showLogoutConfirmationDialog() {
+    showDialog<bool>(
+      context: context,
+      builder: (BuildContext dialogContext) {
+        return AppModalDialog(
+          title: LocalizationService().translate('dialog.logout.title'),
+          content: LocalizationService().translate('dialog.logout.content'),
+          onYes: () {
+            mozPrint('Application is quitting.', 'APP', 'EXIT');
+            SystemNavigator.pop();
+          },
+        );
+      },
+    );
   }
 
   @override
@@ -119,6 +137,9 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
                 mozPrint(
                     '${item['label']} was selected', 'NAVIGATION', 'HEADER');
                 Navigator.pop(context);
+                if (item['isLogout'] == true) {
+                  _showLogoutConfirmationDialog();
+                }
               },
             );
           },

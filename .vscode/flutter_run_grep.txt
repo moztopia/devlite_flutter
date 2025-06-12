@@ -11,11 +11,13 @@
 ^D/CompatChangeReporter.*
 ^D/Dolphin.*
 ^D/EGL_adreno.*
+^D/HWUI.*
 ^D/OplusInputMethodManagerInternal.*
 ^D/OplusScrollToTopManager.*
 ^D/ProfileInstaller.*
 ^D/ScrollOptim.*
 ^D/SurfaceUtils.*
+^D/SurfaceView.*
 ^D/ViewRootImplExtImpl.*
 ^D/VRI.*
 ^KEEP-E/AdrenoUtils.*
@@ -40,3 +42,4 @@
 ^W/Gralloc4.*
 ^W/libc.*
 ^W/VRI.*
+^W/WindowOnBackDispatcher
