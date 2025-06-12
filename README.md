@@ -1,16 +1,15 @@
 # devlite_flutter
 
-A new Flutter project.
+A new Flutter project template.
 
-## Getting Started
+This file definitely eneds work.
 
-This project is a starting point for a Flutter application.
+Once you close this, open the folder in code andgo to the assets\main_configuration.json file. This is where the basic paramters for this file are stored.
 
-A few resources to get you started if this is your first Flutter project:
+Things I know:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+It needs more foundational work. I will add localization services and clean up the duplicity in the bottom navigation. In fact, I would prefer to have a much cleaner widget section.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Open an issue if you see anything you want changed.
+
+I have been writing code for almost 40 years, but Flutter code for a little over a year. This project is an ever evolving way for me to understand this space better.
