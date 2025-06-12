@@ -1,0 +1,42 @@
+^A Dart VM Service.*
+^The Flutter DevTools.*
+^Installing.*
+^Launching.*
+^Running.*
+^Syncing files to.*
+^D/BLASTBufferQueue.*
+^D/BufferQueueConsumer.*
+^D/BufferQueueProducer.*
+^D/callGcSupression.*
+^D/CompatChangeReporter.*
+^D/Dolphin.*
+^D/EGL_adreno.*
+^D/OplusInputMethodManagerInternal.*
+^D/OplusScrollToTopManager.*
+^D/ProfileInstaller.*
+^D/ScrollOptim.*
+^D/SurfaceUtils.*
+^D/ViewRootImplExtImpl.*
+^D/VRI.*
+^KEEP-E/AdrenoUtils.*
+^KEEP-E/AHardwareBuffer.*
+^KEEP-E/Gralloc4.*
+^KEEP-E/OplusBracketLog.*
+^KEEP-E/qdgralloc.*
+^I/AdrenoGLES-0.*
+^I/Adreno-EGL.*
+^I/art.*
+^I/chatty.*
+^I/Choreographer.*
+^I/hwcomposer.*
+^I/Perf.*
+^I/SurfaceControl.*
+^I/SurfaceView.*
+^I/VelocityTracker.*
+^I/WindowExtensionsImpl.*
+^V/GraphicsEnvironment.*
+^V/RenderScript.*
+^W/devlite_flutter(11121): ApkAssets: Deleting.*
+^W/Gralloc4.*
+^W/libc.*
+^W/VRI.*

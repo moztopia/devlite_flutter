@@ -1,0 +1,21 @@
+{
+    "editor.rulers": [],
+    "[dart]": {
+        "editor.rulers": []
+    },
+    "[yaml]": {
+        "editor.rulers": []
+    },
+    "[yml]": {
+        "editor.rulers": []
+    },
+    "[json]": {
+        "editor.rulers": []
+    },
+    "[xml]": {
+        "editor.rulers": []
+    },
+    "[md]": {
+        "editor.rulers": []
+    }
+}
