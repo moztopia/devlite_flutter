@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:devlite_flutter/widgets/widgets.dart';
 import 'package:devlite_flutter/screens/screens.dart';
+import 'package:devlite_flutter/utilities/utilities.dart';
 
 class PrimaryScreen extends StatefulWidget {
   const PrimaryScreen({super.key});
@@ -10,6 +11,7 @@ class PrimaryScreen extends StatefulWidget {
 }
 
 class _PrimaryScreenState extends State<PrimaryScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
@@ -28,10 +30,25 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
     'Five',
   ];
 
+  final List<Map<String, dynamic>> _drawerItems = const [
+    {'label': 'Settings', 'icon': Icons.settings, 'isDivider': false},
+    {'isDivider': true},
+    {
+      'label': 'Billing',
+      'icon': Icons.account_balance_wallet,
+      'isDivider': false
+    },
+    {'isDivider': true},
+    {'label': 'Feedback', 'icon': Icons.feedback, 'isDivider': false},
+    {'label': 'About', 'icon': Icons.info, 'isDivider': false},
+    {'label': 'Help', 'icon': Icons.help, 'isDivider': false},
+  ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
+    mozPrint('${_appBarTitles[index]} was selected', 'NAVIGATION', 'FOOTER');
   }
 
   @override
@@ -40,9 +57,49 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
     final double topNavBarHeight = screenHeight / 14;
 
     return Scaffold(
+      key: _scaffoldKey,
+      onDrawerChanged: (isOpened) {
+        if (!isOpened) {
+          mozPrint('Hamburger Menu (closed)', 'NAVIGATION', 'HEADER');
+        }
+      },
       appBar: TopNavigation(
         title: _appBarTitles[_selectedIndex],
         height: topNavBarHeight,
+        onLeadingPressed: () {
+          _scaffoldKey.currentState?.openDrawer();
+          mozPrint('Hamburger Menu (opened)', 'NAVIGATION', 'HEADER');
+        },
+      ),
+      drawer: Drawer(
+        child: ListView.builder(
+          padding: EdgeInsets.zero,
+          itemCount: _drawerItems.length + 1,
+          itemBuilder: (context, index) {
+            if (index == 0) {
+              return DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                child: const Text('Devlite App',
+                    style: TextStyle(color: Colors.white, fontSize: 24)),
+              );
+            }
+            final item = _drawerItems[index - 1];
+            if (item['isDivider'] == true) {
+              return const Divider();
+            }
+            return ListTile(
+              leading: Icon(item['icon']),
+              title: Text(item['label']),
+              onTap: () {
+                mozPrint(
+                    '${item['label']} was selected', 'NAVIGATION', 'HEADER');
+                Navigator.pop(context);
+              },
+            );
+          },
+        ),
       ),
       body: FooterNavigation(
         screens: _screens,
