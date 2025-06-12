@@ -11,7 +11,6 @@ class PrimaryScreen extends StatefulWidget {
 
 class _PrimaryScreenState extends State<PrimaryScreen> {
   int _selectedIndex = 0;
-  late PageController _pageController;
 
   final List<Widget> _screens = [
     const HomeScreen(),
@@ -29,23 +28,10 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
     'Five',
   ];
 
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController(initialPage: _selectedIndex);
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
-
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
-    _pageController.jumpToPage(index);
   }
 
   @override
@@ -58,14 +44,14 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
         title: _appBarTitles[_selectedIndex],
         height: topNavBarHeight,
       ),
-      body: PageView(
-        controller: _pageController,
+      body: FooterNavigation(
+        screens: _screens,
+        initialIndex: _selectedIndex,
         onPageChanged: (index) {
           setState(() {
             _selectedIndex = index;
           });
         },
-        children: _screens,
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
