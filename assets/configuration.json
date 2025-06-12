@@ -1,6 +1,6 @@
 {
     "title": "Devlite Flutter",
-    "where": "Most of this information comes from a file: assets/main_configuration.json.",
+    "where": "Most of this information comes from a file: assets/configuration.json.",
     "what": "Used to store store startup information that does not require security.",
     "why": "Keeps us from having to modify hardcoded variables for (mostly) ubiquitous things.",
     "api": {

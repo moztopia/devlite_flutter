@@ -4,7 +4,7 @@ A new Flutter project template.
 
 This file definitely eneds work.
 
-Once you close this, open the folder in code andgo to the assets\main_configuration.json file. This is where the basic paramters for this file are stored.
+Once you close this, open the folder in code andgo to the assets\configuration.json file. This is where the basic paramters for this file are stored.
 
 Things I know:
 
@@ -18,4 +18,3 @@ I have been writing code for almost 40 years, but Flutter code for a little over
 
 You can add or remove a screen by following or "unfollowin" these steps.
 ![image](https://github.com/user-attachments/assets/093a56e0-2f83-49ff-899d-79c8b15d9885)
-

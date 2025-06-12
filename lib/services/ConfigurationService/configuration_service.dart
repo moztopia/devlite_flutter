@@ -12,7 +12,7 @@ class Configuration {
   Future<void> load() async {
     try {
       final String response =
-          await rootBundle.loadString('assets/main_configuration.json');
+          await rootBundle.loadString('assets/configuration.json');
       _configData = json.decode(response);
       mozPrint('Configuration loaded successfully.', 'CONFIGURATION');
     } catch (e) {
