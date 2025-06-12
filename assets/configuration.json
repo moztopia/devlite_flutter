@@ -12,7 +12,7 @@
         "mode": "system"
     },
     "language": {
-        "preferred": "es",
+        "preferred": "en",
         "fallback": "en"
     }
 }

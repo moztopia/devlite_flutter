@@ -33,16 +33,16 @@
             "five": {
                 "content": "Five Screen Content"
             }
+        }
+    },
+    "dialog": {
+        "logout": {
+            "title": "Confirm Logout",
+            "content": "Are you sure you want to quit the application?"
         },
-        "dialog": {
-            "logout": {
-                "title": "Confirm Logout",
-                "content": "Are you sure you want to quit the application?"
-            },
-            "button": {
-                "yes": "Yes",
-                "no": "No"
-            }
+        "button": {
+            "yes": "Yes",
+            "no": "No"
         }
     }
 }

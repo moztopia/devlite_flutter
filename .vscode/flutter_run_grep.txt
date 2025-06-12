@@ -20,6 +20,7 @@
 ^D/SurfaceView.*
 ^D/ViewRootImplExtImpl.*
 ^D/VRI.*
+^D/WindowLayoutComponentImpl.*
 ^KEEP-E/AdrenoUtils.*
 ^KEEP-E/AHardwareBuffer.*
 ^KEEP-E/Gralloc4.*
