@@ -1,0 +1,13 @@
+{
+    "header": {
+        "title": "Tindahan ng Prutas",
+        "drawer": {
+            "settings": "Mga Setting",
+            "billing": "Pagsingil",
+            "logout": "Mag-logout",
+            "about": "Tungkol",
+            "help": "Tulong",
+            "feedback": "Feedback"
+        }
+    }
+}

@@ -16,6 +16,7 @@ Future<void> performStartupProcess({
     'Initializing...',
     'Loading Assets...',
     'Loading Environment...',
+    'Loading Languages...',
     'Starting Services...',
     'Connecting...',
     '1..2..3......Blast Off!'
@@ -42,6 +43,11 @@ Future<void> performStartupProcess({
 
     currentStep++;
     updateMessage(loadingSteps[3], currentStep / totalSteps);
+    await loadLocalizationData();
+    await Future.delayed(const Duration(seconds: 1));
+
+    currentStep++;
+    updateMessage(loadingSteps[4], currentStep / totalSteps);
     final String? apiBaseUrl = Configuration().getKey('api.baseurl');
     final Uri? parsedUri = apiBaseUrl != null ? Uri.tryParse(apiBaseUrl) : null;
 
@@ -59,12 +65,12 @@ Future<void> performStartupProcess({
     await Future.delayed(const Duration(seconds: 1));
 
     currentStep++;
-    updateMessage(loadingSteps[4], currentStep / totalSteps);
+    updateMessage(loadingSteps[5], currentStep / totalSteps);
     await loadWelcomeEndpointData();
     await Future.delayed(const Duration(seconds: 1));
 
     currentStep++;
-    updateMessage(loadingSteps[5], currentStep / totalSteps);
+    updateMessage(loadingSteps[6], currentStep / totalSteps);
     await Future.delayed(const Duration(seconds: 1));
 
     mozPrint('All startup tasks completed successfully.', 'STARTUP', 'PROCESS');

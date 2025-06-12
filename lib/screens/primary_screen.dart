@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:devlite_flutter/widgets/widgets.dart';
 import 'package:devlite_flutter/screens/screens.dart';
 import 'package:devlite_flutter/utilities/utilities.dart';
+import 'package:devlite_flutter/services/services.dart';
 
 class PrimaryScreen extends StatefulWidget {
   const PrimaryScreen({super.key});
@@ -30,18 +31,40 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
     'Five',
   ];
 
-  final List<Map<String, dynamic>> _drawerItems = const [
-    {'label': 'Settings', 'icon': Icons.settings, 'isDivider': false},
+  final List<Map<String, dynamic>> _drawerItems = [
+    {
+      'label': LocalizationService().translate('header.drawer.settings'),
+      'icon': Icons.settings,
+      'isDivider': false
+    },
     {'isDivider': true},
     {
-      'label': 'Billing',
+      'label': LocalizationService().translate('header.drawer.billing'),
       'icon': Icons.account_balance_wallet,
       'isDivider': false
     },
     {'isDivider': true},
-    {'label': 'Feedback', 'icon': Icons.feedback, 'isDivider': false},
-    {'label': 'About', 'icon': Icons.info, 'isDivider': false},
-    {'label': 'Help', 'icon': Icons.help, 'isDivider': false},
+    {
+      'label': LocalizationService().translate('header.drawer.feedback'),
+      'icon': Icons.feedback,
+      'isDivider': false
+    },
+    {
+      'label': LocalizationService().translate('header.drawer.about'),
+      'icon': Icons.info,
+      'isDivider': false
+    },
+    {
+      'label': LocalizationService().translate('header.drawer.help'),
+      'icon': Icons.help,
+      'isDivider': false
+    },
+    {'isDivider': true},
+    {
+      'label': LocalizationService().translate('header.drawer.logout'),
+      'icon': Icons.logout,
+      'isDivider': false
+    },
   ];
 
   void _onItemTapped(int index) {
@@ -81,8 +104,8 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.primary,
                 ),
-                child: const Text('Devlite App',
-                    style: TextStyle(color: Colors.white, fontSize: 24)),
+                child: Text(LocalizationService().translate('header.title'),
+                    style: const TextStyle(color: Colors.white, fontSize: 24)),
               );
             }
             final item = _drawerItems[index - 1];

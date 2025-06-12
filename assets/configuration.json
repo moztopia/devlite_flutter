@@ -10,5 +10,9 @@
     "theme": {
         "baseColor": "0xFF2196F3",
         "mode": "system"
+    },
+    "language": {
+        "preferred": "es",
+        "fallback": "en"
     }
 }
