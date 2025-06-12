@@ -13,3 +13,7 @@ It needs more foundational work. I will add localization services and clean up t
 Open an issue if you see anything you want changed.
 
 I have been writing code for almost 40 years, but Flutter code for a little over a year. This project is an ever evolving way for me to understand this space better.
+
+## Adding or Removing Screens
+
+You can add or remove a screen by following or "unfollowin" these steps.
