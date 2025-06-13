@@ -26,11 +26,7 @@ MaterialColor _createMaterialColor(Color color) {
 
 ThemeData buildMainTheme() {
   final Configuration config = Configuration();
-  final String? baseColorHex = config.getKey('theme.baseColor');
-
-  if (baseColorHex == null) {
-    throw StateError('Theme baseColor is missing in configuration.');
-  }
+  final String baseColorHex = config.getKey('theme.baseColor') ?? '0xFF2196F3';
 
   Color primaryColor = Color(int.parse(baseColorHex));
 

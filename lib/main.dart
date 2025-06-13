@@ -100,7 +100,7 @@ class _DevliteFlutterAppState extends State<DevliteFlutterApp> {
   @override
   Widget build(BuildContext context) {
     final Configuration config = Configuration();
-    final String? themeModeString = config.getKey('theme.mode');
+    final String themeModeString = config.getKey('theme.mode') ?? 'system';
     ThemeMode themeMode = ThemeMode.system;
 
     switch (themeModeString) {

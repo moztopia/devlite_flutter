@@ -1,10 +1,11 @@
 {
-    "title": "Devlite Flutter",
+    "1title": "Devlite Flutter",
     "where": "Most of this information comes from a file: assets/configuration.json.",
     "what": "Used to store store startup information that does not require security.",
     "why": "Keeps us from having to modify hardcoded variables for (mostly) ubiquitous things.",
+    "also": "Nothng here is required.",
     "api": {
-        "baseurl": "http://your.server/api",
+        "baseurl": "http://192.168.68.99/api",
         "welcome": "/welcome"
     },
     "theme": {
@@ -12,7 +13,7 @@
         "mode": "system"
     },
     "language": {
-        "preferred": "en",
+        "preferred": "es",
         "fallback": "en"
     }
 }
