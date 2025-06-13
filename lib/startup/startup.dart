@@ -7,4 +7,3 @@ export 'package:devlite_flutter/startup/load_welcome_endpoint_data.dart';
 export 'package:devlite_flutter/startup/load_theme_data.dart';
 export 'package:devlite_flutter/startup/startup_process.dart';
 export 'package:devlite_flutter/startup/splash_screen.dart';
-export 'package:devlite_flutter/services/services.dart';

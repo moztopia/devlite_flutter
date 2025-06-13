@@ -16,9 +16,4 @@ void initializeSequenceDetection(BuildContext context) {
         'SEQUENCE', 'TRIGGER');
     executeSequenceMethod_0123444(context);
   });
-  SequenceDetectorService().registerPattern([0, 1, 2, 1, 0], () {
-    mozPrint('0-1-2-1-0 pattern triggered. Showing reload config dialog.',
-        'SEQUENCE', 'TRIGGER');
-    showReloadConfigDialog(context);
-  });
 }
