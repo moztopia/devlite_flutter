@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:devlite_flutter/services/services.dart';
-import 'package:devlite_flutter/utilities/utilities.dart';
+import 'package:devlite_flutter/everything.dart';
 
 class AppOKModalDialog extends StatelessWidget {
   final String title;
@@ -18,7 +17,9 @@ class AppOKModalDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(title),
-      content: Text(content),
+      content: SingleChildScrollView(
+        child: Text(content),
+      ),
       actions: <Widget>[
         TextButton(
           onPressed: () {

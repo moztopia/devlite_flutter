@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:devlite_flutter/state_machine/state_machine.dart';
-import 'package:devlite_flutter/services/services.dart';
+import 'package:devlite_flutter/everything.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});

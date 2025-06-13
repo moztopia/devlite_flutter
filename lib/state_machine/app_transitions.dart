@@ -1,5 +1,4 @@
-import 'package:devlite_flutter/state_machine/app_states.dart';
-import 'package:devlite_flutter/state_machine/app_events.dart';
+import 'package:devlite_flutter/everything.dart';
 
 class AppTransitions {
   static final Map<AppState, Map<AppEvent, AppState>> _transitions = {

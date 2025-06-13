@@ -62,7 +62,8 @@
         },
         "button": {
             "yes": "Yes",
-            "no": "No"
+            "no": "No",
+            "ok": "Ok"
         }
     }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:devlite_flutter/services/services.dart';
+import 'package:devlite_flutter/everything.dart';
 
 class ThreeScreen extends StatelessWidget {
   const ThreeScreen({super.key});

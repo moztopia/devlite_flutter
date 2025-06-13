@@ -1,6 +1,5 @@
-import 'package:devlite_flutter/utilities/utilities.dart';
-import 'package:devlite_flutter/services/services.dart';
 import 'dart:convert';
+import 'package:devlite_flutter/everything.dart';
 
 Future<void> loadWelcomeEndpointData() async {
   try {

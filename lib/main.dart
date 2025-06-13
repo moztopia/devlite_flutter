@@ -1,10 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:devlite_flutter/state_machine/state_machine.dart';
-import 'package:devlite_flutter/screens/screens.dart';
-import 'package:devlite_flutter/startup/startup.dart';
-import 'package:devlite_flutter/services/services.dart';
+import 'package:devlite_flutter/everything.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -117,7 +114,8 @@ class _DevliteFlutterAppState extends State<DevliteFlutterApp> {
     }
 
     return MaterialApp(
-      title: 'Devlite Flutter',
+      debugShowCheckedModeBanner: false,
+      title: Configuration().getKey('app.title'),
       theme: buildMainTheme(),
       darkTheme: buildDarkTheme(),
       themeMode: themeMode,

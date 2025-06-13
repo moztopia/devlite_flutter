@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:devlite_flutter/services/services.dart';
+import 'package:devlite_flutter/everything.dart';
 
 class FiveScreen extends StatelessWidget {
   const FiveScreen({super.key});

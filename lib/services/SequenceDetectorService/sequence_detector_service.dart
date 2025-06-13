@@ -1,4 +1,4 @@
-import 'package:devlite_flutter/utilities/utilities.dart';
+import 'package:devlite_flutter/everything.dart';
 
 class SequenceDetectorService {
   static final SequenceDetectorService _instance =

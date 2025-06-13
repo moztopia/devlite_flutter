@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:window_manager/window_manager.dart';
-import 'package:devlite_flutter/utilities/utilities.dart';
+import 'package:devlite_flutter/everything.dart';
 
 Future<void> initializePlatformEnvironment() async {
   const double windowWidth = (50 * 9);
   const double windowHeight = (50 * 16);
   const double windowAspectRatio = windowWidth / windowHeight;
-
-  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive); // system control off
 
   if (TargetPlatform.linux == defaultTargetPlatform ||
       TargetPlatform.macOS == defaultTargetPlatform ||

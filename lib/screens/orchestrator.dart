@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:devlite_flutter/utilities/utilities.dart';
 import 'package:provider/provider.dart';
-import 'package:devlite_flutter/state_machine/state_machine.dart';
-import 'package:devlite_flutter/screens/screens.dart';
+import 'package:devlite_flutter/everything.dart';
 
 class AppOrchestratorScreen extends StatefulWidget {
   const AppOrchestratorScreen({super.key});

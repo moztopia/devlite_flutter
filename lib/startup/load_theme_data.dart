@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:devlite_flutter/services/services.dart';
+import 'package:devlite_flutter/everything.dart';
 
 MaterialColor _createMaterialColor(Color color) {
   List strengths = <double>[.05];

@@ -17,7 +17,6 @@ class TopNavigation extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      primary: false,
       title: Text(title),
       leading: onLeadingPressed != null
           ? IconButton(

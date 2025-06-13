@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:devlite_flutter/widgets/widgets.dart';
-import 'package:devlite_flutter/screens/screens.dart';
-import 'package:devlite_flutter/utilities/utilities.dart';
-import 'package:devlite_flutter/services/services.dart';
+import 'package:devlite_flutter/everything.dart';
 
 class PrimaryScreen extends StatefulWidget {
   const PrimaryScreen({super.key});
@@ -72,7 +69,7 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
   @override
   void initState() {
     super.initState();
-    initializeSequenceDetection();
+    initializeSequenceDetection(context);
   }
 
   void _onItemTapped(int index) {
@@ -106,7 +103,7 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
 
     return Scaffold(
       key: _scaffoldKey,
-      extendBodyBehindAppBar: true,
+      extendBodyBehindAppBar: false,
       onDrawerChanged: (isOpened) {
         if (!isOpened) {
           mozPrint('Hamburger Menu (closed)', 'NAVIGATION', 'HEADER');

@@ -1,8 +1,5 @@
 import 'dart:async';
-import 'package:devlite_flutter/state_machine/app_states.dart';
-import 'package:devlite_flutter/state_machine/app_events.dart';
-import 'package:devlite_flutter/state_machine/app_transitions.dart';
-import 'package:devlite_flutter/utilities/utilities.dart';
+import 'package:devlite_flutter/everything.dart';
 
 class AppStateMachine {
   AppState _currentState = AppState.landing;

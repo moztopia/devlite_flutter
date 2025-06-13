@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:devlite_flutter/state_machine/app_states.dart';
 import 'dart:math';
-import 'package:devlite_flutter/utilities/utilities.dart';
+import 'package:flutter/material.dart';
+import 'package:devlite_flutter/everything.dart';
 
 enum TransitionType {
   none,
