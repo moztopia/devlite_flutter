@@ -9,6 +9,8 @@ Future<void> initializePlatformEnvironment() async {
   const double windowHeight = (50 * 16);
   const double windowAspectRatio = windowWidth / windowHeight;
 
+  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive); // system control off
+
   if (TargetPlatform.linux == defaultTargetPlatform ||
       TargetPlatform.macOS == defaultTargetPlatform ||
       TargetPlatform.windows == defaultTargetPlatform) {
