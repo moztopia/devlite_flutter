@@ -1,0 +1,68 @@
+{
+    "footer": {
+        "bar": {
+            "label": {
+                "home": "Inicio",
+                "two": "Dos",
+                "three": "Tres",
+                "four": "Cuatro",
+                "five": "Cinco"
+            }
+        }
+    },
+    "header": {
+        "title": "Devlite Flutter",
+        "bar": {
+            "label": {
+                "home": "Inicio",
+                "two": "Dos",
+                "three": "Tres",
+                "four": "Cuatro",
+                "five": "Cinco"
+            }
+        },
+        "drawer": {
+            "settings": "Configuración",
+            "billing": "Facturación",
+            "logout": "Cerrar sesión",
+            "about": "Acerca de",
+            "help": "Ayuda",
+            "feedback": "Comentarios"
+        }
+    },
+    "debug": {
+        "comment": "// TODO : Eliminar esta sección en producción.",
+        "screens": {
+            "landing": {
+                "content": "Contenido de la pantalla de inicio",
+                "goToHomeButton": "Ir a la pantalla de Inicio",
+                "title": "Pantalla de Inicio"
+            },
+            "home": {
+                "content": "Contenido de la pantalla Inicio"
+            },
+            "two": {
+                "content": "Contenido de la pantalla Dos"
+            },
+            "three": {
+                "content": "Contenido de la pantalla Tres"
+            },
+            "four": {
+                "content": "Contenido de la pantalla Cuatro"
+            },
+            "five": {
+                "content": "Contenido de la pantalla Cinco"
+            }
+        }
+    },
+    "dialog": {
+        "logout": {
+            "title": "Confirmar cierre de sesión",
+            "content": "¿Estás seguro de que deseas salir de la aplicación?"
+        },
+        "button": {
+            "yes": "Sí",
+            "no": "No"
+        }
+    }
+}

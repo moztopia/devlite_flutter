@@ -1,6 +1,26 @@
 {
+    "footer": {
+        "bar": {
+            "label": {
+                "home": "Home",
+                "two": "Two",
+                "three": "Three",
+                "four": "Four",
+                "five": "Five"
+            }
+        }
+    },
     "header": {
-        "title": "Fruitstand",
+        "title": "Devlite Flutter",
+        "bar": {
+            "label": {
+                "home": "Home",
+                "two": "Two",
+                "three": "Three",
+                "four": "Four",
+                "five": "Five"
+            }
+        },
         "drawer": {
             "settings": "Settings",
             "billing": "Billing",

@@ -1,0 +1,68 @@
+{
+    "footer": {
+        "bar": {
+            "label": {
+                "home": "Accueil",
+                "two": "Deux",
+                "three": "Trois",
+                "four": "Quatre",
+                "five": "Cinq"
+            }
+        }
+    },
+    "header": {
+        "title": "Devlite Flutter",
+        "bar": {
+            "label": {
+                "home": "Accueil",
+                "two": "Deux",
+                "three": "Trois",
+                "four": "Quatre",
+                "five": "Cinq"
+            }
+        },
+        "drawer": {
+            "settings": "Paramètres",
+            "billing": "Facturation",
+            "logout": "Déconnexion",
+            "about": "À propos",
+            "help": "Aide",
+            "feedback": "Commentaires"
+        }
+    },
+    "debug": {
+        "comment": "// TODO : Supprimer cette section en production.",
+        "screens": {
+            "landing": {
+                "content": "Contenu de l'écran d'accueil",
+                "goToHomeButton": "Aller à l'écran d'accueil",
+                "title": "Écran d'accueil"
+            },
+            "home": {
+                "content": "Contenu de l'écran Accueil"
+            },
+            "two": {
+                "content": "Contenu de l'écran Deux"
+            },
+            "three": {
+                "content": "Contenu de l'écran Trois"
+            },
+            "four": {
+                "content": "Contenu de l'écran Quatre"
+            },
+            "five": {
+                "content": "Contenu de l'écran Cinq"
+            }
+        }
+    },
+    "dialog": {
+        "logout": {
+            "title": "Confirmer la déconnexion",
+            "content": "Êtes-vous sûr de vouloir quitter l'application ?"
+        },
+        "button": {
+            "yes": "Oui",
+            "no": "Non"
+        }
+    }
+}

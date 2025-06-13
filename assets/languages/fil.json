@@ -1,16 +1,37 @@
 {
+    "footer": {
+        "bar": {
+            "label": {
+                "home": "Home",
+                "two": "Dalawa",
+                "three": "Tatlo",
+                "four": "Apat",
+                "five": "Lima"
+            }
+        }
+    },
     "header": {
-        "title": "Tindahan ng Prutas",
+        "title": "Devlite Flutter",
+        "bar": {
+            "label": {
+                "home": "Home",
+                "two": "Dalawa",
+                "three": "Tatlo",
+                "four": "Apat",
+                "five": "Lima"
+            }
+        },
         "drawer": {
             "settings": "Mga Setting",
             "billing": "Pagsingil",
             "logout": "Mag-logout",
             "about": "Tungkol",
             "help": "Tulong",
-            "feedback": "Puna"
+            "feedback": "Feedback"
         }
     },
     "debug": {
+        "comment": "// TODO : Alisin ang seksyong ito sa production.",
         "screens": {
             "landing": {
                 "content": "Nilalaman ng Landing Screen",
@@ -21,17 +42,17 @@
                 "content": "Nilalaman ng Home Screen"
             },
             "two": {
-                "content": "Nilalaman ng Ikalawang Screen"
+                "content": "Nilalaman ng Screen Dalawa"
             },
             "three": {
-                "content": "Nilalaman ng Ikatlong Screen"
+                "content": "Nilalaman ng Screen Tatlo"
+            },
+            "four": {
+                "content": "Nilalaman ng Screen Apat"
+            },
+            "five": {
+                "content": "Nilalaman ng Screen Lima"
             }
-        },
-        "four": {
-            "content": "Nilalaman ng Ikaapat na Screen"
-        },
-        "five": {
-            "content": "Nilalaman ng Ikalimang Screen"
         }
     },
     "dialog": {

@@ -1,6 +1,26 @@
 {
+    "footer": {
+        "bar": {
+            "label": {
+                "home": "Home",
+                "two": "Two",
+                "three": "Three",
+                "four": "Four",
+                "five": "Five"
+            }
+        }
+    },
     "header": {
-        "title": "Fruitstand",
+        "title": "Devlite Flutter",
+        "bar": {
+            "label": {
+                "home": "Home",
+                "two": "Two",
+                "three": "Three",
+                "four": "Four",
+                "five": "Five"
+            }
+        },
         "drawer": {
             "settings": "Settings",
             "billing": "Billing",
@@ -11,6 +31,7 @@
         }
     },
     "debug": {
+        "comment": "// TODO : Remove this section in production.",
         "screens": {
             "landing": {
                 "content": "Landing Screen Content",
@@ -25,13 +46,13 @@
             },
             "three": {
                 "content": "Three Screen Content"
+            },
+            "four": {
+                "content": "Four Screen Content"
+            },
+            "five": {
+                "content": "Five Screen Content"
             }
-        },
-        "four": {
-            "content": "Four Screen Content"
-        },
-        "five": {
-            "content": "Five Screen Content"
         }
     },
     "dialog": {

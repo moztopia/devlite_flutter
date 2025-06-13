@@ -24,12 +24,12 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
     const FiveScreen(),
   ];
 
-  final List<String> _appBarTitles = const [
-    'Home',
-    'Two',
-    'Three',
-    'Four',
-    'Five',
+  final List<String> _appBarTitles = [
+    LocalizationService().translate('header.bar.label.home'),
+    LocalizationService().translate('header.bar.label.two'),
+    LocalizationService().translate('header.bar.label.three'),
+    LocalizationService().translate('header.bar.label.four'),
+    LocalizationService().translate('header.bar.label.five')
   ];
 
   final List<Map<String, dynamic>> _drawerItems = [
@@ -155,26 +155,26 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: LocalizationService().translate('footer.bar.label.home'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.looks_two),
-            label: 'Two',
+            label: LocalizationService().translate('footer.bar.label.two'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.looks_3),
-            label: 'Three',
+            label: LocalizationService().translate('footer.bar.label.three'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.looks_4),
-            label: 'Four',
+            label: LocalizationService().translate('footer.bar.label.four'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.looks_5),
-            label: 'Five',
+            label: LocalizationService().translate('footer.bar.label.five'),
           ),
         ],
         currentIndex: _selectedIndex,
