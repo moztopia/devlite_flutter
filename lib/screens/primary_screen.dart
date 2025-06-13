@@ -69,11 +69,18 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
     },
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    initializeSequenceDetection();
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
     mozPrint('${_appBarTitles[index]} was selected', 'NAVIGATION', 'FOOTER');
+    SequenceDetectorService().addPress(index);
   }
 
   void _showLogoutConfirmationDialog() {
@@ -99,6 +106,7 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
 
     return Scaffold(
       key: _scaffoldKey,
+      extendBodyBehindAppBar: true,
       onDrawerChanged: (isOpened) {
         if (!isOpened) {
           mozPrint('Hamburger Menu (closed)', 'NAVIGATION', 'HEADER');
