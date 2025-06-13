@@ -12,8 +12,10 @@ class LocalizationService {
   Map<String, dynamic> _fallbackStrings = {};
   String _currentLocale = 'en';
   late String _fallbackLocale;
+  List<String> _availableLocales = [];
 
   String get currentLocale => _currentLocale;
+  List<String> get availableLocales => _availableLocales;
 
   Future<Map<String, dynamic>> _loadLocale(String locale) async {
     final String path = 'assets/languages/$locale.json';
@@ -83,16 +85,50 @@ class LocalizationService {
   String _getDeviceLanguageCode() {
     final Configuration config = Configuration();
     final String? languageCode = config.getKey('device.locale.languageCode');
-    return languageCode ?? config.getKey('languages.fallback') ?? 'en';
+    return languageCode ?? config.getKey('language.fallback') ?? 'en';
   }
 
   Future<void> initializeLocale() async {
+    try {
+      final assetManifestString =
+          await rootBundle.loadString('AssetManifest.json');
+      final Map<String, dynamic> manifestMap = json.decode(assetManifestString);
+
+      final List<String> foundLocales = [];
+      for (final String assetPath in manifestMap.keys) {
+        if (assetPath.startsWith('assets/languages/') &&
+            assetPath.endsWith('.json') &&
+            !assetPath.contains('.source.json')) {
+          final String fileName = assetPath.split('/').last;
+          final String languageCode = fileName.replaceAll('.json', '');
+          foundLocales.add(languageCode);
+        }
+      }
+      _availableLocales = foundLocales.toSet().toList()..sort();
+      mozPrint('Discovered available locales: $_availableLocales',
+          'LOCALIZATION', 'SCAN');
+    } catch (e) {
+      mozPrint('Failed to scan AssetManifest.json for locales: $e',
+          'LOCALIZATION', 'SCAN', 'ERROR');
+      _availableLocales = [];
+    }
+
     final Configuration config = Configuration();
     _fallbackLocale = config.getKey('language.fallback') as String? ?? 'en';
 
     String? preferredLanguageCode =
         config.getKey('language.preferred') as String?;
     String langCode = preferredLanguageCode ?? _getDeviceLanguageCode();
+
+    if (!_availableLocales.contains(langCode)) {
+      mozPrint(
+          'Preferred language "$langCode" not found, falling back to "$_fallbackLocale".',
+          'LOCALIZATION',
+          'INIT',
+          'WARNING');
+      langCode = _fallbackLocale;
+    }
+
     _currentLocale = langCode;
 
     _localizedStrings = await _loadLocale(_currentLocale);

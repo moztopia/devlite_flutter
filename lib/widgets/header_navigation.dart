@@ -4,12 +4,14 @@ class TopNavigation extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final double height;
   final VoidCallback? onLeadingPressed;
+  final List<Widget>? actions;
 
   const TopNavigation({
     super.key,
     required this.title,
     required this.height,
     this.onLeadingPressed,
+    this.actions,
   });
 
   @override
@@ -24,6 +26,7 @@ class TopNavigation extends StatelessWidget implements PreferredSizeWidget {
           : const Center(
               child: Icon(Icons.menu),
             ),
+      actions: actions,
     );
   }
 

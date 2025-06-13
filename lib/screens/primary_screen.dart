@@ -111,6 +111,9 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
           _scaffoldKey.currentState?.openDrawer();
           mozPrint('Hamburger Menu (opened)', 'NAVIGATION', 'HEADER');
         },
+        actions: const [
+          HeaderLanguageSelector(),
+        ],
       ),
       drawer: Drawer(
         child: ListView.builder(
@@ -179,8 +182,10 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Theme.of(context).colorScheme.primary,
-        unselectedItemColor:
-            Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+        unselectedItemColor: Theme.of(context)
+            .colorScheme
+            .onSurface
+            .withAlpha((0.6 * 255).round()),
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
       ),
