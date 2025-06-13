@@ -13,22 +13,27 @@ class LandingScreen extends StatelessWidget {
           title: Text(
               LocalizationService().translate('debug.screens.landing.title'))),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              LocalizationService().translate('debug.screens.landing.content'),
-              style: const TextStyle(fontSize: 24),
-            ),
-            const SizedBox(height: 40),
-            ElevatedButton(
-              onPressed: () {
-                context.read<AppStateMachine>().addEvent(AppEvent.goToHome);
-              },
-              child: Text(LocalizationService()
-                  .translate('debug.screens.landing.goToHomeButton')),
-            ),
-          ],
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 50.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                LocalizationService()
+                    .translate('debug.screens.landing.content'),
+                style: TextStyle(fontSize: 24),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 40),
+              ElevatedButton(
+                onPressed: () {
+                  context.read<AppStateMachine>().addEvent(AppEvent.goToHome);
+                },
+                child: Text(LocalizationService()
+                    .translate('debug.screens.landing.goToHomeButton')),
+              ),
+            ],
+          ),
         ),
       ),
     );

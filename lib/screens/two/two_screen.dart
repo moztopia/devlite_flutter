@@ -7,9 +7,13 @@ class TwoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        LocalizationService().translate('debug.screens.two.content'),
-        style: const TextStyle(fontSize: 24),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 50.0),
+        child: Text(
+          LocalizationService().translate('debug.screens.two.content'),
+          style: TextStyle(fontSize: 24),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }
