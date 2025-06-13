@@ -9,8 +9,8 @@
         "welcome": "/welcome"
     },
     "theme": {
-        "baseColor": "0xFF2196F3",
-        "mode": "system"
+        "baseColor": "0xFF1565C0",
+        "mode": "dark"
     },
     "language": {
         "preferred": "es",
