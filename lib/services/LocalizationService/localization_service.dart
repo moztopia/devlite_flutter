@@ -23,8 +23,8 @@ class LocalizationService {
       final String jsonString = await rootBundle.loadString(path);
       return json.decode(jsonString);
     } catch (e) {
-      mozPrint('Failed to load localization for "$locale": $e', 'LOCALIZATION',
-          '', 'ERROR');
+      mozPrint('Failed to load localization for "$locale": $e',
+          'INITIALIZATION', 'LOCALIZATION', 'ERROR');
       return {};
     }
   }
@@ -33,7 +33,7 @@ class LocalizationService {
     _currentLocale = locale;
     _localizedStrings = await _loadLocale(_currentLocale);
     mozPrint('Localization for "$_currentLocale" loaded successfully.',
-        'LOCALIZATION');
+        'INITIALIZATION', 'LOCALIZATION');
   }
 
   String translate(String key) {
@@ -70,7 +70,7 @@ class LocalizationService {
           'WARNING');
     } else {
       mozPrint('Localization key "$key" not found in any locale.',
-          'LOCALIZATION', '', 'WARNING');
+          'INITIALIZATION', 'LOCALIZATION', 'WARNING');
       translatedValue = key;
     }
 
@@ -106,10 +106,10 @@ class LocalizationService {
       }
       _availableLocales = foundLocales.toSet().toList()..sort();
       mozPrint('Discovered available locales: $_availableLocales',
-          'LOCALIZATION', 'SCAN');
+          'INITIALIZATION', 'LOCALIZATION');
     } catch (e) {
       mozPrint('Failed to scan AssetManifest.json for locales: $e',
-          'LOCALIZATION', 'SCAN', 'ERROR');
+          'INITIALIZATION', 'LOCALIZATION', 'ERROR');
       _availableLocales = [];
     }
 
@@ -123,8 +123,8 @@ class LocalizationService {
     if (!_availableLocales.contains(langCode)) {
       mozPrint(
           'Preferred language "$langCode" not found, falling back to "$_fallbackLocale".',
+          'INITIALIZATION',
           'LOCALIZATION',
-          'INIT',
           'WARNING');
       langCode = _fallbackLocale;
     }
@@ -140,6 +140,7 @@ class LocalizationService {
 
     mozPrint(
         'Localization initialized for "$_currentLocale" (fallback "$_fallbackLocale").',
+        'INITIALIZATION',
         'LOCALIZATION');
   }
 }

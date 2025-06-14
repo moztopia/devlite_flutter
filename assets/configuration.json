@@ -13,9 +13,5 @@
     "theme": {
         "baseColor": "0xFF1565C0",
         "mode": "dark"
-    },
-    "language": {
-        "preferred": "es",
-        "fallback": "en"
     }
 }

@@ -56,8 +56,8 @@ class ApiService {
         handler.next(e);
       },
     ));
-    mozPrint('ApiService initialized with base URL: $baseUrl', 'API',
-        'INITIALIZATION');
+    mozPrint('ApiService initialized with base URL: $baseUrl', 'INITIALIZATION',
+        'API');
   }
 
   Future<Response> get(String path,

@@ -14,10 +14,11 @@ class Configuration {
       final String response =
           await rootBundle.loadString('assets/configuration.json');
       _configData = json.decode(response);
-      mozPrint('Configuration loaded successfully.', 'CONFIGURATION');
+      mozPrint('Configuration loaded successfully.', 'INITIALIZATION',
+          'CONFIGURATION');
     } catch (e) {
-      mozPrint(
-          'Unable to load configuration: $e', 'CONFIGURATION', '', 'ERROR');
+      mozPrint('Unable to load configuration: $e', 'INITIALIZATION',
+          'CONFIGURATION', 'ERROR');
       _configData = {};
     }
   }
@@ -25,7 +26,8 @@ class Configuration {
   Future<void> resetAndLoad() async {
     _configData = {};
     await load();
-    mozPrint('Configuration reset and reloaded.', 'CONFIGURATION');
+    mozPrint(
+        'Configuration reset and reloaded.', 'INITIALIZATION', 'CONFIGURATION');
   }
 
   dynamic getKey(String keyPath) {
@@ -40,8 +42,8 @@ class Configuration {
       } else {
         mozPrint(
             'Configuration key path "$keyPath" not found at part "$part". Returning null.',
+            'INITIALIZATION',
             'CONFIGURATION',
-            '',
             'WARNING');
         return null;
       }
