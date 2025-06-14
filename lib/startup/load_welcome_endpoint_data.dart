@@ -1,4 +1,3 @@
-// lib/startup/load_welcome_endpoint_data.dart
 import 'dart:convert';
 import 'package:devlite_flutter/everything.dart';
 import 'package:flutter/foundation.dart';

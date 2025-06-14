@@ -15,7 +15,7 @@ class AppModalDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
+    return DialogBaseWidget(
       title: Text(title),
       content: Text(content),
       actions: <Widget>[
