@@ -1,5 +1,7 @@
+// lib/startup/load_welcome_endpoint_data.dart
 import 'dart:convert';
 import 'package:devlite_flutter/everything.dart';
+import 'package:flutter/foundation.dart';
 
 Future<void> loadWelcomeEndpointData() async {
   try {
@@ -10,8 +12,34 @@ Future<void> loadWelcomeEndpointData() async {
       return;
     }
 
-    final response = await postWelcome(
-        data: {"preferred_language": "en", "client_identifier": "app:android"});
+    final String preferredLanguage =
+        Configuration().getKey('device.locale.languageCode') as String? ?? 'en';
+
+    String platformIdentifier;
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      platformIdentifier = 'android';
+    } else if (defaultTargetPlatform == TargetPlatform.iOS) {
+      platformIdentifier = 'ios';
+    } else if (defaultTargetPlatform == TargetPlatform.windows) {
+      platformIdentifier = 'windows';
+    } else if (defaultTargetPlatform == TargetPlatform.macOS) {
+      platformIdentifier = 'macos';
+    } else if (defaultTargetPlatform == TargetPlatform.linux) {
+      platformIdentifier = 'linux';
+    } else {
+      platformIdentifier = 'unknown';
+      mozPrint(
+          'Unknown client platform: $defaultTargetPlatform: ${platformIdentifier}',
+          'STARTUP',
+          'DATA',
+          'WARNING');
+    }
+    final String clientIdentifier = 'app:$platformIdentifier';
+
+    final response = await postWelcome(data: {
+      "preferred_language": preferredLanguage,
+      "client_identifier": clientIdentifier
+    });
 
     if (response.statusCode == 200) {
       mozPrint('Welcome data fetched successfully:', 'STARTUP', 'DATA');

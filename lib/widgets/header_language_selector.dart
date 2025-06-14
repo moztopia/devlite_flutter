@@ -9,8 +9,6 @@ class HeaderLanguageSelector extends StatelessWidget {
     final LocalizationService localizationService = LocalizationService();
     final Configuration config = Configuration();
 
-    final String currentLangCode =
-        localizationService.currentLocale.toUpperCase();
     final List<String> availableLanguages =
         (config.getKey('language.available') as List?)?.cast<String>() ?? [];
 
@@ -20,6 +18,7 @@ class HeaderLanguageSelector extends StatelessWidget {
         onSelected: (String selectedLanguage) {
           mozPrint(
               'Selected language: $selectedLanguage', 'LANGUAGE', 'SELECTOR');
+          localizationService.setCurrentLocale(selectedLanguage);
         },
         itemBuilder: (BuildContext context) {
           return availableLanguages.map((String langCode) {
@@ -29,19 +28,24 @@ class HeaderLanguageSelector extends StatelessWidget {
             );
           }).toList();
         },
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primaryContainer,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Text(
-            currentLangCode,
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.onPrimaryContainer,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+        child: ValueListenableBuilder<String>(
+          valueListenable: localizationService.localeNotifier,
+          builder: (context, currentLangCode, child) {
+            return Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primaryContainer,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                currentLangCode.toUpperCase(),
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

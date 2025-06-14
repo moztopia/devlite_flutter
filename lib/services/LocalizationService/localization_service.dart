@@ -1,21 +1,26 @@
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:devlite_flutter/utilities/utilities.dart';
-import 'package:devlite_flutter/services/services.dart';
+import 'package:flutter/foundation.dart';
+import 'package:devlite_flutter/everything.dart';
 
 class LocalizationService {
   static final LocalizationService _instance = LocalizationService._internal();
   factory LocalizationService() => _instance;
-  LocalizationService._internal();
 
   Map<String, dynamic> _localizedStrings = {};
   Map<String, dynamic> _fallbackStrings = {};
   String _currentLocale = 'en';
   late String _fallbackLocale;
   List<String> _availableLocales = [];
+  late ValueNotifier<String> _localeNotifier;
+
+  LocalizationService._internal() {
+    _localeNotifier = ValueNotifier<String>(_currentLocale);
+  }
 
   String get currentLocale => _currentLocale;
   List<String> get availableLocales => _availableLocales;
+  ValueNotifier<String> get localeNotifier => _localeNotifier;
 
   Future<Map<String, dynamic>> _loadLocale(String locale) async {
     final String path = 'assets/languages/$locale.json';
@@ -80,6 +85,7 @@ class LocalizationService {
   Future<void> setCurrentLocale(String locale) async {
     _currentLocale = locale;
     await load(_currentLocale);
+    _localeNotifier.value = _currentLocale;
   }
 
   String _getDeviceLanguageCode() {
@@ -130,6 +136,7 @@ class LocalizationService {
     }
 
     _currentLocale = langCode;
+    _localeNotifier.value = _currentLocale;
 
     _localizedStrings = await _loadLocale(_currentLocale);
     if (_currentLocale != _fallbackLocale) {

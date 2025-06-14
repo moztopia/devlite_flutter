@@ -13,63 +13,74 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = [
-    const HomeScreen(),
-    const TwoScreen(),
-    const ThreeScreen(),
-    const FourScreen(),
-    const FiveScreen(),
-  ];
+  void _onLocaleChanged() {
+    setState(() {});
+  }
 
-  final List<String> _appBarTitles = [
-    LocalizationService().translate('header.bar.label.home'),
-    LocalizationService().translate('header.bar.label.two'),
-    LocalizationService().translate('header.bar.label.three'),
-    LocalizationService().translate('header.bar.label.four'),
-    LocalizationService().translate('header.bar.label.five')
-  ];
+  List<Widget> get _screens => [
+        HomeScreen(),
+        TwoScreen(),
+        ThreeScreen(),
+        FourScreen(),
+        FiveScreen(),
+      ];
 
-  final List<Map<String, dynamic>> _drawerItems = [
-    {
-      'label': LocalizationService().translate('header.drawer.settings'),
-      'icon': Icons.settings,
-      'isDivider': false
-    },
-    {'isDivider': true},
-    {
-      'label': LocalizationService().translate('header.drawer.billing'),
-      'icon': Icons.account_balance_wallet,
-      'isDivider': false
-    },
-    {'isDivider': true},
-    {
-      'label': LocalizationService().translate('header.drawer.feedback'),
-      'icon': Icons.feedback,
-      'isDivider': false
-    },
-    {
-      'label': LocalizationService().translate('header.drawer.about'),
-      'icon': Icons.info,
-      'isDivider': false
-    },
-    {
-      'label': LocalizationService().translate('header.drawer.help'),
-      'icon': Icons.help,
-      'isDivider': false
-    },
-    {'isDivider': true},
-    {
-      'label': LocalizationService().translate('header.drawer.logout'),
-      'icon': Icons.logout,
-      'isDivider': false,
-      'isLogout': true
-    },
-  ];
+  List<String> get _appBarTitles => [
+        LocalizationService().translate('header.bar.label.home'),
+        LocalizationService().translate('header.bar.label.two'),
+        LocalizationService().translate('header.bar.label.three'),
+        LocalizationService().translate('header.bar.label.four'),
+        LocalizationService().translate('header.bar.label.five')
+      ];
+
+  List<Map<String, dynamic>> get _drawerItems => [
+        {
+          'label': LocalizationService().translate('header.drawer.settings'),
+          'icon': Icons.settings,
+          'isDivider': false
+        },
+        {'isDivider': true},
+        {
+          'label': LocalizationService().translate('header.drawer.billing'),
+          'icon': Icons.account_balance_wallet,
+          'isDivider': false
+        },
+        {'isDivider': true},
+        {
+          'label': LocalizationService().translate('header.drawer.feedback'),
+          'icon': Icons.feedback,
+          'isDivider': false
+        },
+        {
+          'label': LocalizationService().translate('header.drawer.about'),
+          'icon': Icons.info,
+          'isDivider': false
+        },
+        {
+          'label': LocalizationService().translate('header.drawer.help'),
+          'icon': Icons.help,
+          'isDivider': false
+        },
+        {'isDivider': true},
+        {
+          'label': LocalizationService().translate('header.drawer.logout'),
+          'icon': Icons.logout,
+          'isDivider': false,
+          'isLogout': true
+        },
+      ];
 
   @override
   void initState() {
     super.initState();
     initializeSequenceDetection(context);
+    LocalizationService().localeNotifier.addListener(_onLocaleChanged);
+  }
+
+  @override
+  void dispose() {
+    LocalizationService().localeNotifier.removeListener(_onLocaleChanged);
+    super.dispose();
   }
 
   void _onItemTapped(int index) {
