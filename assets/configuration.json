@@ -13,5 +13,8 @@
     "theme": {
         "baseColor": "0xFF1565C0",
         "mode": "dark"
+    },
+    "debug": {
+        "auth_token": ""
     }
 }

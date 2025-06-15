@@ -1,10 +1,11 @@
+// lib/startup/startup_process.dart
 import 'dart:async';
 import 'package:devlite_flutter/everything.dart';
 
 typedef LoadingMessageUpdater = void Function(String message, double progress);
 
-Future<String?> _mockGetAuthToken() async {
-  return 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC42OC45OS9hcGkvYXV0aC9naXRodWIvY2FsbGJhY2siLCJpYXQiOjE3NDk2NDUyMjgsImV4cCI6MTc1MjY0NTIyOCwibmJmIjoxNzQ5NjQ1MjI4LCJqdGkiOiJHQmxRS2FGYklpSmU4SFNmIiwic3ViIjoiMDE5NzVlZjktNzUzZS03MGE3LWExMTUtYTBkYWE3NjhhYWMxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsInByb2ZpbGVfaWQiOiIwMTk3NWVmOS03NTU5LTcwMDItYmQ0YS05OTA1ZmFkMWYwYmUifQ.ZMCL4wbKFkAjHe7_vRqzyHX6SnFA2BzCv3OVgNWe41s';
+Future<String?> _getAuthToken() async {
+  return AuthService().getAuthToken();
 }
 
 Future<void> performStartupProcess({
@@ -54,9 +55,11 @@ Future<void> performStartupProcess({
           'API base URL is invalid or missing in configuration. Cannot proceed without a valid API endpoint.');
     }
 
+    AuthService().setAuthToken(Configuration().getKey('debug.auth_token'));
+
     ApiService().initialize(
       baseUrl: apiBaseUrl,
-      tokenProvider: _mockGetAuthToken,
+      tokenProvider: _getAuthToken,
       anonymousPaths: ['/welcome', '/auth/login', '/auth/register'],
     );
 
