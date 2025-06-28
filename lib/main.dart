@@ -1,121 +1,68 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:devlite_flutter/everything.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
-  runApp(const InitialSplashScreenRoot());
+  runApp(const DevliteBootstrapApp());
 }
 
-class InitialSplashScreenRoot extends StatefulWidget {
-  const InitialSplashScreenRoot({super.key});
+class DevliteBootstrapApp extends StatelessWidget {
+  const DevliteBootstrapApp({super.key});
 
-  @override
-  State<InitialSplashScreenRoot> createState() =>
-      _InitialSplashScreenRootState();
-}
-
-class _InitialSplashScreenRootState extends State<InitialSplashScreenRoot> {
-  String _loadingMessage = 'Initializing application...';
-  double _loadingProgress = 0.0;
-  bool _startupTasksCompleted = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _startSplashProcess();
-  }
-
-  void _updateLoadingMessage(String message, double progress) {
-    if (mounted) {
-      setState(() {
-        _loadingMessage = message;
-        _loadingProgress = progress;
-      });
-    }
-  }
-
-  Future<void> _startSplashProcess() async {
-    try {
-      await performStartupProcess(
-        updateMessage: _updateLoadingMessage,
-      );
-      _startupTasksCompleted = true;
-    } catch (e) {
-      _updateLoadingMessage('Startup Error: $e', 0.0);
-      _startupTasksCompleted = false;
-      return;
-    } finally {
-      if (mounted && _startupTasksCompleted) {
-        runApp(
-          Provider<AppStateMachine>(
-            create: (_) => AppStateMachine(),
-            dispose: (_, appStateMachine) => appStateMachine.dispose(),
-            child: const DevliteFlutterApp(),
-          ),
-        );
-      }
-    }
+  Future<bool> _initializeApp() async {
+    await performStartupProcess(
+      updateMessage: (_, __) {},
+    );
+    return true;
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFF2196F3),
-        primaryColor: const Color(0xFF2196F3),
-      ),
-      home: SplashScreen(message: _loadingMessage, progress: _loadingProgress),
+    return FutureBuilder<bool>(
+      future: _initializeApp(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState != ConnectionState.done) {
+          return const MaterialApp(
+            home: Scaffold(
+              backgroundColor: Color(0xFF2196F3),
+              body: Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                ),
+              ),
+            ),
+          );
+        }
+
+        return Provider<AppStateMachine>(
+          create: (_) => AppStateMachine()..addEvent(AppEvent.appStarted),
+          dispose: (_, appStateMachine) => appStateMachine.dispose(),
+          child: const DevliteFlutterApp(),
+        );
+      },
     );
   }
 }
 
-class DevliteFlutterApp extends StatefulWidget {
+class DevliteFlutterApp extends StatelessWidget {
   const DevliteFlutterApp({super.key});
 
   @override
-  State<DevliteFlutterApp> createState() => _DevliteFlutterAppState();
-}
-
-class _DevliteFlutterAppState extends State<DevliteFlutterApp> {
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      loadRuntimeData(context);
-      context.read<AppStateMachine>().addEvent(AppEvent.appStarted);
-    });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final Configuration config = Configuration();
-    final String themeModeString = config.getKey('theme.mode') ?? 'system';
-    ThemeMode themeMode = ThemeMode.system;
+    final config = Configuration();
+    final themeModeString = config.getKey('theme.mode') ?? 'system';
+    final themeMode = switch (themeModeString) {
+      'light' => ThemeMode.light,
+      'dark' => ThemeMode.dark,
+      _ => ThemeMode.system,
+    };
 
-    switch (themeModeString) {
-      case 'light':
-        themeMode = ThemeMode.light;
-        break;
-      case 'dark':
-        themeMode = ThemeMode.dark;
-        break;
-      case 'system':
-      default:
-        themeMode = ThemeMode.system;
-        break;
-    }
+    loadRuntimeData(context);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: Configuration().getKey('app.title'),
+      title: config.getKey('app.title'),
       theme: buildMainTheme(),
       darkTheme: buildDarkTheme(),
       themeMode: themeMode,
