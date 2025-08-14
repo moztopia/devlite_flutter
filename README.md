@@ -16,5 +16,5 @@ I have been writing code for almost 40 years, but Flutter code for a little over
 
 ## Adding or Removing Screens
 
-You can add or remove a screen by following or "unfollowin" these steps.
+You can add or remove a screen by following or "unfollowing" these steps.
 ![image](https://github.com/user-attachments/assets/093a56e0-2f83-49ff-899d-79c8b15d9885)
